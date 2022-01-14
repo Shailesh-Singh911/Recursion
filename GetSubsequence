@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner in=new Scanner(System.in);
+        String s=in.next();
+        System.out.println(gss(s));
+
+    }
+
+    public static ArrayList<String> gss(String str) {
+        if(str.equals("")){
+            ArrayList<String> ans=new ArrayList<>();
+            ans.add("");
+            return ans;
+            
+        }
+        ArrayList<String> a=new ArrayList<>();
+        ArrayList<String> ans=new ArrayList<>();
+        a=gss(str.substring(1));
+        ans.addAll(a);
+        String s=str.substring(0,1);
+        for(int i=0;i<a.size();i++){
+            ans.add(s+a.get(i));
+        }
+        return ans;
+        
+    }
+
+}
