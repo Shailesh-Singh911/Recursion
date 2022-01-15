@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner in=new Scanner(System.in);
+        String s=in.next();
+        printKPC(s,"");
+    }
+
+    public static void printKPC(String str, String asf) {
+        if(str.equals("")){
+            System.out.println(asf);
+            return;
+        }
+        String[] ans= {".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+        int c=Integer.parseInt(str.substring(0,1));
+        for(int i=0;i<ans[c].length();i++){
+            printKPC(str.substring(1), asf + ans[c].charAt(i));
+        }
+    }
+
+}
